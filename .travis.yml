@@ -9,7 +9,7 @@ script:
   - docker run semiscone/travis npm run test -- --coverage
 
 deploy:
-  provide: elasticbeanstalk
+  provider: elasticbeanstalk
   region: "us-west-1"
   app: "travis"
   env: "Travis-env"
