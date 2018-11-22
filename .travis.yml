@@ -3,7 +3,9 @@ services:
   - docker
 
 before_install:
-  - docker build -t travis -f Dockerfile.dev .
+  - docker build -t semiscone/travis -f Dockerfile.dev .
 
-scripts:
-  - docker run travis npm run test -- --coverage
+script:
+  - docker run semiscone/travis npm run test -- --coverage
+
+
