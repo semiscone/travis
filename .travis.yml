@@ -8,4 +8,16 @@ before_install:
 script:
   - docker run semiscone/travis npm run test -- --coverage
 
+deploy:
+  provide: elasticbeanstalk
+  region: "us-west-1"
+  app: "travis"
+  env: "Travis-env"
+  bucket_name: "elasticbeanstalk-us-west-1-022643302964"
+  bucket_path: "travis"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
 
